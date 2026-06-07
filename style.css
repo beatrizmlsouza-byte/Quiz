@@ -1,0 +1,94 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background-color:#d9e8d6;
+    background-image: url("img/Wireframes\ Quiz.jpg");
+    background-size:cover;
+}
+
+.container{
+    width:600px;
+    max-width:90%;
+    background:#25D366;
+    padding:40px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 0 15px rgba(0,0,0,0.2);
+    border:5px solid #f0f0f0;
+}
+
+.logo{
+    width:90px;
+    margin-bottom:10px;
+}
+
+h1{
+    color:white;
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+h2{
+    color:white;
+    font-size:2rem;
+    margin-bottom:20px;
+}
+
+p{
+    color:white;
+    font-size:1.4rem;
+    font-weight:bold;
+    margin-bottom:30px;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+}
+
+label{
+    color:white;
+    font-size:1.3rem;
+    font-weight:bold;
+    margin:15px 0 8px;
+}
+
+input{
+    padding:18px;
+    border:3px solid #e8e8e8;
+    border-radius:10px;
+    font-size:1.2rem;
+    outline:none;
+}
+
+input::placeholder{
+    color:#999;
+    font-weight:bold;
+}
+
+button{
+    margin-top:30px;
+    padding:18px;
+    border:none;
+    border-radius:10px;
+    background:#49e27d;
+    color:white;
+    font-size:1.5rem;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#3bc66b;
+}
