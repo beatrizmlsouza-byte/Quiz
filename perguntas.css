@@ -1,0 +1,181 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background-color:#d9e8d6;
+    background-image:url("img/Wireframes\ Quiz.jpg");
+    background-repeat: repeat-y;
+    background-size:contain;
+}
+
+.container{
+    width:600px;
+    max-width:90%;
+    background:#25D366;
+    padding:40px;
+    border-radius:10px;
+    border:5px solid #f0f0f0;
+    box-shadow:0 0 15px rgba(0,0,0,0.2);
+}
+
+.barra{
+    width:100%;
+    height:18px;
+    background:#8fe0aa;
+    border-radius:20px;
+    overflow:hidden;
+    margin:15px 0;
+}
+
+#progresso{
+    width:33%;
+    height:100%;
+    background:white;
+    transition:.3s;
+}
+
+#paginaTexto{
+    text-align: center;
+    color:white;
+    font-weight:bold;
+    margin-top:8px;
+    margin-bottom:25px;
+}
+
+.pagina{
+    display:none;
+}
+
+.pagina.ativa{
+    display:block;
+}
+
+.grupo-pergunta{
+    margin-bottom:30px;
+}
+
+ h2{
+    color:white;
+    text-align:center;
+    font-size:1.5rem;
+    margin-bottom:15px;
+}
+
+.grupo-pergunta button{
+    width:100%;
+    margin-bottom:10px;
+    padding:18px;
+    border:3px solid #e8e8e8;
+    border-radius:10px;
+    background:white;
+    color:#25D366;
+    font-size:1.1rem;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.grupo-pergunta button:hover{
+    transform:scale(1.02);
+}
+
+.selecionado{
+    background:#49e27d !important;
+    color:white !important;
+    border:3px solid white !important;
+}
+
+/* FIGURINHAS */
+
+.imagens,
+.imagens2{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:15px;
+    justify-content: center;
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.imagens img{
+    width:150px;
+    height:150px;
+    object-fit:cover;
+    border-radius:10px;
+    cursor:pointer;
+    border:4px solid transparent;
+    transition:.3s;
+}
+
+.imagens2 img{
+    width:250px;
+    height:180px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    border:4px solid transparent;
+
+    transition:.3s;
+}
+
+.imagens img:hover,
+.imagens2 img:hover{
+    transform:scale(1.05);
+}
+
+img.selecionado{
+    border:4px solid white !important;
+}
+
+/* BOTÕES */
+
+.botoes{
+    display:flex;
+    gap:15px;
+    margin-top:25px;
+}
+
+.botoes button{
+    flex:1;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:10px;
+
+    font-size:1.2rem;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+.botoes button:first-child{
+    background:#f0f0f0;
+    color:#333;
+}
+
+.avancar{
+    background:#49e27d;
+    color:white;
+}
+
+.avancar:disabled{
+    opacity:.5;
+    cursor:not-allowed;
+}
+

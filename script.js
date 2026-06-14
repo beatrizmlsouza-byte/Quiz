@@ -44,5 +44,5 @@ if (nomeUsuario) {
 // ======================
 
 function comecarQuiz() {
-    window.location.href = "quiz.html";
+    window.location.href = "perguntas.html";
 }
