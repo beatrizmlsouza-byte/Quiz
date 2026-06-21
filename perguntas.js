@@ -4,23 +4,25 @@ let paginaAtual = 0;
 
 const respostas = {};
 
-let pontos = {
+const pontos = {
     fig1: 0,
     fig2: 0,
     fig3: 0,
     fig4: 0
 };
 
-// Selecionar respostas de botão
-function selecionar(pergunta, resultado, elemento){
+/* =========================
+   SELEÇÃO GENÉRICA
+========================= */
 
+function selecionarBase(pergunta, resultado, elemento, seletor) {
     const grupo = elemento.parentElement;
 
-    grupo.querySelectorAll("button").forEach(btn=>{
-        btn.classList.remove("selecionado");
+    grupo.querySelectorAll(seletor).forEach(el => {
+        el.classList.remove("selecionado");
     });
 
-    if(respostas[pergunta]){
+    if (respostas[pergunta]) {
         pontos[respostas[pergunta]]--;
     }
 
@@ -32,101 +34,85 @@ function selecionar(pergunta, resultado, elemento){
     verificarPagina();
 }
 
-// Selecionar respostas de imagem
-function selecionarImagem(pergunta, resultado, elemento){
-
-    const grupo = elemento.parentElement;
-
-    grupo.querySelectorAll("img").forEach(img=>{
-        img.classList.remove("selecionado");
-    });
-
-    if(respostas[pergunta]){
-        pontos[respostas[pergunta]]--;
-    }
-
-    respostas[pergunta] = resultado;
-    pontos[resultado]++;
-
-    elemento.classList.add("selecionado");
-
-    verificarPagina();
+/* BOTÕES */
+function selecionar(p, r, el) {
+    selecionarBase(p, r, el, "button");
 }
 
-// Verifica se todas perguntas da página foram respondidas
-function verificarPagina(){
+/* IMAGENS */
+function selecionarImagem(p, r, el) {
+    selecionarBase(p, r, el, "img");
+}
 
+/* TEXTO */
+function selecionarTexto(p, r, el) {
+    selecionarBase(p, r, el, ".opcao-texto");
+}
+
+/* =========================
+   VALIDAÇÃO DA PÁGINA
+========================= */
+
+function verificarPagina() {
     const pagina = paginas[paginaAtual];
-
-    const perguntas =
-        pagina.querySelectorAll(".grupo-pergunta");
+    const perguntas = pagina.querySelectorAll(".grupo-pergunta");
 
     let respondidas = 0;
 
-    perguntas.forEach(pergunta=>{
-
-        const id = pergunta.dataset.id;
-
-        if(respostas[id]){
+    perguntas.forEach(pergunta => {
+        if (respostas[pergunta.dataset.id]) {
             respondidas++;
         }
-
     });
 
-    const botao =
-        pagina.querySelector(".avancar");
+    const botao = pagina.querySelector(".avancar");
 
-    if(botao){
-
-        botao.disabled =
-            respondidas !== perguntas.length;
-
+    if (botao) {
+        botao.disabled = respondidas !== perguntas.length;
     }
 }
 
-// Troca de página
-function trocarPagina(indice){
+/* =========================
+   NAVEGAÇÃO
+========================= */
 
-    paginas[paginaAtual]
-        .classList.remove("ativa");
+function trocarPagina(indice) {
+    paginas[paginaAtual].classList.remove("ativa");
 
     paginaAtual = indice;
 
-    paginas[paginaAtual]
-        .classList.add("ativa");
+    paginas[paginaAtual].classList.add("ativa");
 
     atualizarProgresso();
-
     verificarPagina();
 }
 
-// Barra de progresso
-function atualizarProgresso(){
-
-    const barra =
-        document.getElementById("progresso");
-
-    const texto =
-        document.getElementById("paginaTexto");
+/* PROGRESSO */
+function atualizarProgresso() {
+    const barra = document.getElementById("progresso");
+    const texto = document.getElementById("paginaTexto");
 
     const porcentagens = [33, 66, 100];
 
-    barra.style.width =
-        porcentagens[paginaAtual] + "%";
-
-    texto.innerText =
-        `Página ${paginaAtual + 1} de 3`;
+    barra.style.width = porcentagens[paginaAtual] + "%";
+    texto.innerText = `Página ${paginaAtual + 1} de 3`;
 }
 
-
-// Inicializa barra
 atualizarProgresso();
 
-function mostrarResultado(){
+/* =========================
+   RESULTADO
+========================= */
+
+function mostrarResultado() {
+    localStorage.setItem("fig1", pontos.fig1);
+    localStorage.setItem("fig2", pontos.fig2);
+    localStorage.setItem("fig3", pontos.fig3);
+    localStorage.setItem("fig4", pontos.fig4);
+
     window.location.href = "resultado.html";
 }
 
-
-function inicio(){
+function inicio() {
     window.location.href = "inicio.html";
 }
