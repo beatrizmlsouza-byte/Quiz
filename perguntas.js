@@ -105,10 +105,10 @@ atualizarProgresso();
 ========================= */
 
 function mostrarResultado() {
-    localStorage.setItem("fig1", pontos.fig1);
-    localStorage.setItem("fig2", pontos.fig2);
-    localStorage.setItem("fig3", pontos.fig3);
-    localStorage.setItem("fig4", pontos.fig4);
+    sessionStorage.setItem("fig1", pontos.fig1);
+    sessionStorage.setItem("fig2", pontos.fig2);
+    sessionStorage.setItem("fig3", pontos.fig3);
+    sessionStorage.setItem("fig4", pontos.fig4);
 
     window.location.href = "resultado.html";
 }

@@ -15,7 +15,7 @@ if (form) {
             return;
         }
 
-        localStorage.setItem("nomeUsuario", nome);
+        sessionStorage.setItem("nomeUsuario", nome);
         window.location.href = "inicio.html";
     });
 }
@@ -28,7 +28,7 @@ if (form) {
 const nomeUsuario = document.getElementById("nomeUsuario");
 
 if (nomeUsuario) {
-    const nomeSalvo = localStorage.getItem("nomeUsuario");
+    const nomeSalvo = sessionStorage.getItem("nomeUsuario");
     nomeUsuario.textContent = nomeSalvo || "Visitante";
 }
 

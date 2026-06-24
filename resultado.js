@@ -26,10 +26,10 @@ const resultados = {
 ====================== */
 
 const pontuacoes = {
-    fig1: Number(localStorage.getItem("fig1")) || 0,
-    fig2: Number(localStorage.getItem("fig2")) || 0,
-    fig3: Number(localStorage.getItem("fig3")) || 0,
-    fig4: Number(localStorage.getItem("fig4")) || 0
+    fig1: Number(sessionStorage.getItem("fig1")) || 0,
+    fig2: Number(sessionStorage.getItem("fig2")) || 0,
+    fig3: Number(sessionStorage.getItem("fig3")) || 0,
+    fig4: Number(sessionStorage.getItem("fig4")) || 0
 };
 
 /* ======================
